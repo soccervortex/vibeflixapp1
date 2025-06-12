@@ -3,15 +3,15 @@ workflows:
     name: Vibeflix
     max_build_duration: 60
     environment:
-      Xcode: latest  # or specify a specific Xcode version, e.g., 14.0
       cocoapods: default
+    xcode: latest  # of specificeer een specifieke Xcode-versie, bv. 14.0
     scripts:
       - name: Install dependencies
         script: |
           pod install --repo-update
       - name: Run Tests
         script: |
-          xcodebuild test -workspace Vibeflix.xcworkspace -scheme Vibeflix -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14' | xcpretty
+          xcodebuild test -workspace Vibeflix.xcworkspace -scheme VibeflixScheme -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14' | xcpretty
     artifacts:
       - build/Vibeflix.ipa
     publishing:
