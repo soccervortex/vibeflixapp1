@@ -10,7 +10,7 @@ workflows:
           pod install --repo-update
       - name: Run Tests
         script: |
-          xcodebuild test -workspace App.xcworkspace -scheme VibeflixScheme -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14' | xcpretty
+          xcodebuild test -workspace App.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14' | xcpretty
     artifacts:
       - build/Vibeflix.ipa
     publishing:
