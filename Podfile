@@ -7,7 +7,7 @@ use_frameworks!
 # Product -> Clean Build Folder after new Cordova plugins installed
 # Requires CocoaPods 1.6 or newer
 install! 'cocoapods', :disable_input_output_paths => true
-
+warn_for_unused_master_specs_repo => false
 def capacitor_pods
   pod 'Capacitor', :path => './node_modules/@capacitor/ios'
   pod 'CapacitorCordova', :path => './node_modules/@capacitor/ios'
