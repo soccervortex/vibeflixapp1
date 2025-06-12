@@ -1,9 +1,20 @@
 workflows:
-
-    sample-workflow:
-
-        name: Codemagic Sample Workflow
-
-        max_build_duration: 120
-
-        instance_type: mac_mini_m2
+  ios-build:
+    name: Vibeflix
+    max_build_duration: 60
+    environment:
+      Xcode: latest  # or specify a specific Xcode version, e.g., 14.0
+      cocoapods: default
+    scripts:
+      - name: Install dependencies
+        script: |
+          pod install --repo-update
+      - name: Run Tests
+        script: |
+          xcodebuild test -workspace Vibeflix.xcworkspace -scheme Vibeflix -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14' | xcpretty
+    artifacts:
+      - build/Vibeflix.ipa
+    publishing:
+      email:
+        recipients:
+          - help.vibeflix@gmail.com
