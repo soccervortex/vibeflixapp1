@@ -4,7 +4,6 @@ workflows:
     max_build_duration: 60
     environment:
       cocoapods: default
-    xcode: latest  # of specificeer een specifieke Xcode-versie, bv. 14.0
     scripts:
       - name: Install dependencies
         script: |
