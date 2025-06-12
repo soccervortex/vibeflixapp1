@@ -7,7 +7,7 @@ workflows:
     scripts:
       - name: Install dependencies
         script: |
-          cd "$HOME/Documents/GitHub/vibeflix/ipa/vibeflix/ios/App"
+          cd "vibeflix/ios/App"
           pod install --repo-update
       - name: Run Tests
         script: |
